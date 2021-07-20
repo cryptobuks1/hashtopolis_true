@@ -261,6 +261,7 @@ class UResponseTask extends UResponse {
   const CUR_SBIS_COUNT            = "cur_sbis_count";
   const isComplete                = "isComplete";
   const SBIS_COUNT                = "sbis_count";
+  const STATUS            = "status";
   
   const SUBTASKS = "subtasks";
   
