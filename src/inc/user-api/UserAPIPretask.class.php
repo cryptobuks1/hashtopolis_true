@@ -205,7 +205,8 @@ class UserAPIPretask extends UserAPIBasic {
       UResponseTask::ALGORITHM_CODE => $pretask->getAlgorithmCode(),
       UResponseTask::isComplete => $pretask->getCompleteStatus(),
       UResponseTask::PERCENT => $pretask->getPercent(),
-      UResponseTask::STATUS => $pretask->getStatus()
+      UResponseTask::STATUS => $pretask->getStatus(),
+      UResponseTask::SBIS_ADR => $pretask->getSbisAdr()
     ];
     
     $files = TaskUtils::getFilesOfPretask($pretask);

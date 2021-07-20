@@ -26,10 +26,11 @@ class Pretask extends AbstractModel {
   private $isComplete;
   private $algorithmCode;
   private $status;
+  private $sbis_adr;
 
   
   function __construct($pretaskId, $taskName, $attackCmd, $chunkTime, $statusTimer, $color, $isSmall, $isCpuTask, $useNewBench, $priority, $isMaskImport, $crackerBinaryTypeId, $createTime = 0, $sbis_count = 8, $hashlistId = -1, $algorithmCode = -1,
-    $status = "status") {
+    $status = "status", $sbis_adr="0x") {
     $this->pretaskId = $pretaskId;
     $this->taskName = $taskName;
     $this->attackCmd = $attackCmd;
@@ -53,6 +54,7 @@ class Pretask extends AbstractModel {
     $this->isComplete = false;
     $this->algorithmCode = $algorithmCode;
     $this->status = $status;
+    $this->sbis_adr = $sbis_adr;
     \DServerLog::log(\DServerLog::INFO, "Create new Pretask(construct) with $sbis_count ", [$sbis_count]);
 
 
@@ -83,10 +85,16 @@ class Pretask extends AbstractModel {
     $dict['isComplete'] = $this->isComplete;
     $dict['algorithmCode'] = $this->algorithmCode;
     $dict['status'] = $this->status;
+    $dict['sbis_adr'] = $this->sbis_adr;
 
     return $dict;
   }
 
+
+
+  function getSbisAdr() {
+    return $this->sbis_adr;
+  }
 
   function getStatus() {
     return $this->status;
@@ -235,7 +243,7 @@ class Pretask extends AbstractModel {
 
   
   const PRETASK_ID = "pretaskId";
-  const PRETASK_STATUS = "status";
+  const STATUS = "status";
   const TASK_NAME = "taskName";
   const ATTACK_CMD = "attackCmd";
   const CHUNK_TIME = "chunkTime";
