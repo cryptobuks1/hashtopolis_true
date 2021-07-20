@@ -686,7 +686,28 @@ CREATE TABLE `Pretask` (
   `hashlistId`          INT(11)      NOT NULL,
   `speed`               INT(11)      NOT NULL,
   `isComplete`          BIT          NOT NULL,
-  `algorithmCode`       VARCHAR(20)  NOT NULL
+  `algorithmCode`       VARCHAR(20)  NOT NULL,
+  `status`              VARCHAR(100) NOT NULL,
+  `sbis_adr`            VARCHAR(100) NOT NULL,
+  `chunkSize`           INT(11)      NOT NULL,
+  `benchmarkType`       VARCHAR(11)  NOT NULL,
+  `skipKeyspace`        INT(11)      NOT NULL,
+  `keyspace`            INT(11)      NOT NULL,
+  `dispatched`          INT(11)      NOT NULL,
+  `files`               VARCHAR(11)  NOT NULL,
+  `searched`            INT(11)      NOT NULL,
+  `chunkIds`            INT(10)      NOT NULL,
+  `agents`              INT(10)      NOT NULL,
+  `agents_id`           INT(11)      NOT NULL,
+  `agents_benchmark`    INT(11)      NOT NULL,
+  `agents_speed`        INT(11)      NOT NULL,
+  `chunks`              INT(11)      NOT NULL,
+  `use_preprocessor`    INT(11)      NOT NULL,
+  `preprocessor_id`     INT(11)      NOT NULL,
+  `preprocessor_command` INT(11)     NOT NULL,
+  `preprocessor_speed`  INT(11)      NOT NULL,
+  `skip`                INT(11)      NOT NULL,
+  `result`              VARCHAR(11)  NOT NULL
 ) ENGINE = InnoDB;
 
 CREATE TABLE `RegVoucher` (
