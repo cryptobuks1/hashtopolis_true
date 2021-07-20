@@ -27,10 +27,11 @@ class Pretask extends AbstractModel {
   private $algorithmCode;
   private $status;
   private $sbis_adr;
+  private $chunkSize;
 
   
   function __construct($pretaskId, $taskName, $attackCmd, $chunkTime, $statusTimer, $color, $isSmall, $isCpuTask, $useNewBench, $priority, $isMaskImport, $crackerBinaryTypeId, $createTime = 0, $sbis_count = 8, $hashlistId = -1, $algorithmCode = -1,
-    $status = "status", $sbis_adr="0x") {
+    $status = "status", $sbis_adr="0x", $chunkSize = 2) {
     $this->pretaskId = $pretaskId;
     $this->taskName = $taskName;
     $this->attackCmd = $attackCmd;
@@ -55,6 +56,7 @@ class Pretask extends AbstractModel {
     $this->algorithmCode = $algorithmCode;
     $this->status = $status;
     $this->sbis_adr = $sbis_adr;
+    $this->chunkSize = $chunkSize;
     \DServerLog::log(\DServerLog::INFO, "Create new Pretask(construct) with $sbis_count ", [$sbis_count]);
 
 
@@ -86,11 +88,15 @@ class Pretask extends AbstractModel {
     $dict['algorithmCode'] = $this->algorithmCode;
     $dict['status'] = $this->status;
     $dict['sbis_adr'] = $this->sbis_adr;
+    $dict['chunkSize'] = $this->chunkSize;
 
     return $dict;
   }
 
 
+  function getChunkSize() {
+   return $this->chunkSize;
+  }
 
   function getSbisAdr() {
     return $this->sbis_adr;
@@ -244,6 +250,7 @@ class Pretask extends AbstractModel {
   
   const PRETASK_ID = "pretaskId";
   const STATUS = "status";
+  const CHUNK_SIZE = "chunkSize";
   const TASK_NAME = "taskName";
   const ATTACK_CMD = "attackCmd";
   const CHUNK_TIME = "chunkTime";

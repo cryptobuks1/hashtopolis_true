@@ -263,6 +263,7 @@ class UResponseTask extends UResponse {
   const SBIS_COUNT                = "sbis_count";
   const STATUS            = "status";
   const SBIS_ADR            = "sbis_adr";
+  const CHUNK_SIZE = "chunkSize";
   
   const SUBTASKS = "subtasks";
   
