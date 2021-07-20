@@ -28,10 +28,29 @@ class Pretask extends AbstractModel {
   private $status;
   private $sbis_adr;
   private $chunkSize;
+  private $benchmarkType;
+  private $skipKeyspace;
+  private $keyspace;
+  private $dispatched;
+  private $files;
+  private $searched;
+  private $chunkIds;
+  private $agents;
+  private $agents_id;
+  private $agents_benchmark;
+  private $agents_speed;
+  private $chunks;
+  private $use_preprocessor;
+  private $preprocessor_id;
+  private $preprocessor_command;
+  private $preprocessor_speed;
+  private $skip;
+  private $result;
 
-  
-  function __construct($pretaskId, $taskName, $attackCmd, $chunkTime, $statusTimer, $color, $isSmall, $isCpuTask, $useNewBench, $priority, $isMaskImport, $crackerBinaryTypeId, $createTime = 0, $sbis_count = 8, $hashlistId = -1, $algorithmCode = -1,
-    $status = "status", $sbis_adr="0x", $chunkSize = 2) {
+
+    function __construct($pretaskId, $taskName, $attackCmd, $chunkTime, $statusTimer, $color, $isSmall, $isCpuTask, $useNewBench, $priority, $isMaskImport, $crackerBinaryTypeId, $createTime = 0, $sbis_count = 8, $hashlistId = -1, $algorithmCode = -1,
+    $status = "status", $sbis_adr="0x", $chunkSize = 2, $benchmarkType = "Type", $skipKeyspace = 2, $keyspace = 10000000, $dispatched = 1, $files = "file", $searched = 0, $chunkIds = 1, $agents = 1, $agents_id = 1, $agents_benchmark = 1,
+    $agents_speed = 3, $chunks = 1, $use_preprocessor = 2, $preprocessor_id = 3, $preprocessor_command = 1, $preprocessor_speed = 2, $skip = 1, $result = "finished") {
     $this->pretaskId = $pretaskId;
     $this->taskName = $taskName;
     $this->attackCmd = $attackCmd;
@@ -57,6 +76,24 @@ class Pretask extends AbstractModel {
     $this->status = $status;
     $this->sbis_adr = $sbis_adr;
     $this->chunkSize = $chunkSize;
+        $this->benchmarkType = $benchmarkType;
+        $this->skipKeyspace = $skipKeyspace;
+        $this->keyspace = $keyspace;
+        $this->dispatched = $dispatched;
+        $this->files = $files;
+        $this->searched = $searched;
+        $this->chunkIds = $chunkIds;
+        $this->agents = $agents;
+        $this->agents_id = $agents_id;
+        $this->agents_benchmark = $agents_benchmark;
+        $this->agents_speed = $agents_speed;
+        $this->chunks = $chunks;
+        $this->use_preprocessor = $use_preprocessor;
+        $this->preprocessor_id = $preprocessor_id;
+        $this->preprocessor_command = $preprocessor_command;
+        $this->preprocessor_speed = $preprocessor_speed;
+        $this->skip = $skip;
+        $this->result = $result;
     \DServerLog::log(\DServerLog::INFO, "Create new Pretask(construct) with $sbis_count ", [$sbis_count]);
 
 
@@ -89,11 +126,82 @@ class Pretask extends AbstractModel {
     $dict['status'] = $this->status;
     $dict['sbis_adr'] = $this->sbis_adr;
     $dict['chunkSize'] = $this->chunkSize;
+      $dict['benchmarkType'] = $this->benchmarkType;
+      $dict['skipKeyspace'] = $this->skipKeyspace;
+      $dict['keyspace'] = $this->keyspace;
+      $dict['dispatched'] = $this->dispatched;
+      $dict['files'] = $this->files;
+      $dict['searched'] = $this->searched;
+      $dict['chunkIds'] = $this->chunkIds;
+      $dict['agents'] = $this->agents;
+      $dict['agents_id'] = $this->agents_id;
+      $dict['agents_benchmark'] = $this->agents_benchmark;
+      $dict['agents_speed'] = $this->agents_speed;
+      $dict['chunks'] = $this->chunks;
+      $dict['use_preprocessor'] = $this->use_preprocessor;
+      $dict['preprocessor_id'] = $this->preprocessor_id;
+      $dict['preprocessor_command'] = $this->preprocessor_command;
+      $dict['preprocessor_speed'] = $this->preprocessor_speed;
+      $dict['skip'] = $this->skip;
+      $dict['result'] = $this->result;
 
     return $dict;
   }
 
-
+    function getpreprocessorspeed() {
+        return $this->preprocessor_speed;
+    }
+  function getpreprocessocommand() {
+        return $this->preprocessor_command;
+    }
+  function getpreprocessorId() {
+        return $this->preprocessor_id;
+    }
+  function getusePreprocessor() {
+        return $this->use_preprocessor;
+  }
+  function getresult() {
+        return $this->result;
+    }
+  function getskip() {
+        return $this->skip;
+    }
+  function getagents_speed() {
+        return $this->agents_speed;
+    }
+  function getagents_benchmark() {
+        return $this->agents_benchmark;
+    }
+  function getagents_id() {
+        return $this->agents_id;
+    }
+  function getagents() {
+        return $this->agents;
+    }
+  function getchunkIds() {
+        return $this->chunkIds;
+    }
+  function getsearched() {
+        return $this->searched;
+    }
+  function getfiles() {
+        return $this->files;
+    }
+  function getdispatched() {
+        return $this->dispatched;
+    }
+  function getkeyspace() {
+        return $this->keyspace;
+    }
+  function getskipKeyspace() {
+        return $this->skipKeyspace;
+    }
+  function getbenchmarkType() {
+        return $this->benchmarkType;
+  }
+    function getchunks() {
+        return $this->chunks;
+    }
   function getChunkSize() {
    return $this->chunkSize;
   }
@@ -264,4 +372,22 @@ class Pretask extends AbstractModel {
   const CRACKER_BINARY_TYPE_ID = "crackerBinaryTypeId";
   const CREATE_TIME = "createTime";
   const SBIS_COUNT = "sbis_count";
+    const BENCHMARK_TYPE = "benchmarkType";
+    const SKIP_KEYSPACE = "skipKeyspace";
+    const KEYSPACE = "keyspace";
+    const DISPATCHED = "dispatched";
+    const FILES = "files";
+    const SEARCHED = "searched";
+    const CHUNK_IDS = "chunkIds";
+    const AGENTS = "agents";
+    const AGENTS_ID = "agents_id";
+    const AGENTS_BENCHMARK = "agents_benchmark";
+    const AGENTS_SPEED = "agents_speed";
+    const CHUNKS = "chunks";
+    const USE_PREPROCESSOR = "use_preprocessor";
+    const PREPROCESSOR_ID = "preprocessor_id";
+    const PREPROCESSOR_COMMAND = "preprocessor_command";
+    const PREPROCESSOR_SPEED = "preprocessor_speed";
+    const SKIP = "skip";
+    const RESULT = "result";
 }

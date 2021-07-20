@@ -264,6 +264,24 @@ class UResponseTask extends UResponse {
   const STATUS            = "status";
   const SBIS_ADR            = "sbis_adr";
   const CHUNK_SIZE = "chunkSize";
+    const BENCHMARK_TYPE = "benchmarkType";
+    const SKIP_KEYSPACE = "skipKeyspace";
+    const KEYSPACE = "keyspace";
+    const DISPATCHED = "dispatched";
+    const FILES = "files";
+    const SEARCHED = "searched";
+    const CHUNK_IDS = "chunkIds";
+    const AGENTS = "agents";
+    const AGENTS_ID = "agents_id";
+    const AGENTS_BENCHMARK = "agents_benchmark";
+    const AGENTS_SPEED = "agents_speed";
+    const CHUNKS = "chunks";
+    const USE_PREPROCESSOR = "use_preprocessor";
+    const PREPROCESSOR_ID = "preprocessor_id";
+    const PREPROCESSOR_COMMAND = "preprocessor_command";
+    const PREPROCESSOR_SPEED = "preprocessor_speed";
+    const SKIP = "skip";
+    const RESULT = "result";
   
   const SUBTASKS = "subtasks";
   

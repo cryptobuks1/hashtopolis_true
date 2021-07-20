@@ -207,7 +207,25 @@ class UserAPIPretask extends UserAPIBasic {
       UResponseTask::PERCENT => $pretask->getPercent(),
       UResponseTask::STATUS => $pretask->getStatus(),
       UResponseTask::SBIS_ADR => $pretask->getSbisAdr(),
-      UResponseTask::CHUNK_SIZE => $pretask->getChunkSize()
+      UResponseTask::CHUNK_SIZE => $pretask->getChunkSize(),
+        UResponseTask::BENCHMARK_TYPE => $pretask->getbenchmarkType(),
+        UResponseTask::SKIP_KEYSPACE => $pretask->getskipKeyspace(),
+        UResponseTask::KEYSPACE => $pretask->getkeyspace(),
+        UResponseTask::DISPATCHED => $pretask->getdispatched(),
+        UResponseTask::FILES => $pretask->getfiles(),
+        UResponseTask::SEARCHED => $pretask->getsearched(),
+        UResponseTask::CHUNK_IDS => $pretask->getchunkIds(),
+        UResponseTask::AGENTS => $pretask->getagents(),
+        UResponseTask::AGENTS_ID => $pretask->getagents_id(),
+        UResponseTask::AGENTS_BENCHMARK => $pretask->getagents_benchmark(),
+        UResponseTask::AGENTS_SPEED => $pretask->getagents_speed(),
+        UResponseTask::CHUNKS => $pretask->getchunks(),
+        UResponseTask::USE_PREPROCESSOR => $pretask->getusePreprocessor(),
+        UResponseTask::PREPROCESSOR_ID => $pretask->getpreprocessorId(),
+        UResponseTask::PREPROCESSOR_COMMAND => $pretask->getpreprocessocommand(),
+        UResponseTask::PREPROCESSOR_SPEED => $pretask->getpreprocessorspeed(),
+        UResponseTask::SKIP => $pretask->getskip(),
+        UResponseTask::RESULT => $pretask->getresult()
     ];
     
     $files = TaskUtils::getFilesOfPretask($pretask);
