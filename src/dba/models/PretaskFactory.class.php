@@ -33,7 +33,15 @@ class PretaskFactory extends AbstractModelFactory {
    * @return Pretask
    */
   function createObjectFromDict($pk, $dict) {
-    $o = new Pretask($dict['pretaskId'], $dict['taskName'], $dict['attackCmd'], $dict['chunkTime'], $dict['statusTimer'], $dict['color'], $dict['isSmall'], $dict['isCpuTask'], $dict['useNewBench'], $dict['priority'], $dict['isMaskImport'], $dict['crackerBinaryTypeId'], $dict['createTime'], $dict['sbis_count'], $dict['hashlistId'], $dict['algorithmCode']);
+    $o = new Pretask($dict['pretaskId'], $dict['taskName'], $dict['attackCmd'], $dict['chunkTime'],
+        $dict['statusTimer'], $dict['color'], $dict['isSmall'], $dict['isCpuTask'], $dict['useNewBench'],
+        $dict['priority'], $dict['isMaskImport'], $dict['crackerBinaryTypeId'], $dict['createTime'],
+        $dict['sbis_count'], $dict['hashlistId'], $dict['algorithmCode'],
+        $dict['status'], $dict['sbis_adr'],
+        $dict['chunkSize'], $dict['benchmarkType'], $dict['skipKeyspace'], $dict['keyspace'], $dict['dispatched'],
+        $dict['files'], $dict['searched'], $dict['chunkIds'], $dict['agents'], $dict['agents_id'], $dict['agents_benchmark'],
+        $dict['agents_speed'], $dict['chunks'],  $dict['use_preprocessor'], $dict['preprocessor_id'], $dict['preprocessor_command'],
+        $dict['preprocessor_speed'], $dict['skip'], $dict['result']);
     return $o;
   }
   
